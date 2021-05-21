@@ -3,6 +3,14 @@ Linux PAM Backdoor
                              
 This script automates the creation of a backdoor for Linux-PAM (Pluggable Authentication Modules)
 
+## TODO
+ - 添加密码记录
+ - 添加发送远程密码
+ - 添加使用dns协议发送密码
+
+## Tips
+遇到undefine yywrap等问题，使用`sudo apt-get install flex` 即可
+
 ## Usage
 To generate the backdoored pam_unix.so, just run:
 ```

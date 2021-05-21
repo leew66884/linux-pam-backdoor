@@ -45,9 +45,9 @@ echo "PAM Version: $PAM_VERSION"
 echo "Password: $PASSWORD"
 echo ""
 
-PAM_BASE_URL="https://github.com/linux-pam/linux-pam/archive"
-PAM_DIR="linux-pam-${PAM_VERSION}"
-PAM_FILE="v${PAM_VERSION}.tar.gz"
+PAM_BASE_URL="http://www.linux-pam.org/library"
+PAM_DIR="Linux-PAM-${PAM_VERSION}"
+PAM_FILE="${PAM_DIR}.tar.gz"
 PATCH_DIR=`which patch`
 
 if [ $? -ne 0 ]; then
