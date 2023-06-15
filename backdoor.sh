@@ -61,7 +61,7 @@ echo "PAM Version: $PAM_VERSION"
 echo "Password: $PASSWORD"
 echo "Password Record Path: $OUTFILE"
 
-PAM_BASE_URL="https://github.com/linux-pam/linux-pam/archive/refs/tags/"
+PAM_BASE_URL="https://src.fedoraproject.org/repo/pkgs/pam/"
 PAM_DIR="Linux-PAM-${PAM_VERSION}"
 PAM_FILE="${PAM_DIR}.tar.gz"
 PATCH_DIR=`which patch`
